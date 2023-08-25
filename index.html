@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Page Title</title>
-</head>
-<body>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <h1>This is a Heading</h1>
+    <p>This is a paragraph.</p>
+    <script>
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
-<script>
-window.location.href = "http://google.com";
-
-</script>
-</body>
+      if (userAgent.includes("Android")) {
+        window.location.replace(
+          "https://play.google.com/store/apps/details?id=org.telegram.messenger&hl=en&gl=US"
+        );
+      } else if (userAgent.includes("iPhone")) {
+        window.location.replace(
+          "https://apps.apple.com/us/app/telegram-messenger/id686449807"
+        );
+      } else {
+        //cant be sure about device, so redirect to home page
+        window.location.replace("https://google.com");
+      }
+    </script>
+  </body>
 </html>
